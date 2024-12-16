@@ -8,7 +8,7 @@ import UserModel from "@/models/User.model";
 export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
-            id: "dredentials",
+            id: "credentials",
             name: "Credentials",
             credentials: {
                 email: { label: "Email", type: "text", },
@@ -45,6 +45,9 @@ export const authOptions: NextAuthOptions = {
         async session({ session, token }) {
             if(token){
                 session.user._id = token._id
+                session.user.isVerified = token.isVerified
+                session.user.isAcceptingMessages = token.isAcceptingMessages
+                session.user.username = token.username 
             }
             return session
         },
