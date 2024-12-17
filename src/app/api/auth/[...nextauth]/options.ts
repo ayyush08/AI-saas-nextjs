@@ -53,7 +53,7 @@ export const authOptions: NextAuthOptions = {
         },
         async jwt({ token, user }) { //vahi user jo authorize me return hua h
             if(user){
-                token._id = user._id?.toString()
+                token._id = user._id?.toString() // sometimes can create issues in aggregation pipelines
                 token.isVerified = user.isVerified
                 token.isAcceptingMessages = user.isAcceptingMessages
                 token.username = user.username
