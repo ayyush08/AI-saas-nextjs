@@ -21,7 +21,7 @@
 
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 import * as  z from "zod" // * for all exports, as for alias 
 import { useEffect, useState } from "react"
 import { useDebounceValue } from 'usehooks-ts'
@@ -30,6 +30,7 @@ import { useRouter } from "next/navigation"
 import { signUpSchema } from "@/schemas/signUpSchema"
 import axios,{AxiosError} from 'axios'
 import { ApiResponse } from "@/types/ApiResponse"
+import { title } from "process"
 
 const page = () => {
     const [username, setUsername] = useState("")
@@ -38,7 +39,7 @@ const page = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const debouncedUsername = useDebounceValue(username, 300)
 
-    const toast = useToast()
+    const {toast} = useToast()
     const router = useRouter()
 
     //zod implementation
@@ -68,8 +69,34 @@ const page = () => {
                 }
             }
         }
+        checkUsernameUnique()
     }, [debouncedUsername])
 
+    const onSubmit = async(data:z.infer<typeof signUpSchema>)=>{
+        console.log(data);
+        setIsSubmitting(true)
+        try {
+            const response = await axios.post<ApiResponse>('/api/sign-up',data)
+            console.log(response);
+            toast({
+                title:"Success",
+                description:response.data.message,
+            })
+            router.replace(`/verify/${username}`)
+            
+        } catch (error) {
+            console.error("Error signing up user",error);
+            const axiosError = error as AxiosError<ApiResponse>
+            toast({
+                title:"Error",
+                description:axiosError.response?.data.message ?? "Error signing up user",
+                variant:"destructive"
+            })
+        }
+        finally{
+            setIsSubmitting(false)
+        }
+    }
 
     return (
         <div>page</div>
