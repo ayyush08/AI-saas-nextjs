@@ -10,12 +10,14 @@ export async function sendVerificationEmail(
     verifyCode: string
 ): Promise<ApiResponse> {  // response of type ApiResponse chahiye hi chahiye
     try {
-        await resend.emails.send({
+        const res = await resend.emails.send({
             from: 'onboarding@resend.dev',
             to: email,
             subject: 'Verification Code for True Feedback Account',
             react: VerificationEmail({username,otp:verifyCode}),
         });
+        console.log(res);
+        
         return {
             success: true,
             message: "Verification email sent successfully",

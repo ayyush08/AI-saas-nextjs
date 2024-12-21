@@ -17,7 +17,7 @@ const Home = () => {
           Start your Anonymous Conversations today
         </h1>
         <p className='mt-3 md:mt-4 text-base md:text-lg'>
-          Explore Anonymous Message - Where your identity is never known but messages are !!
+          Explore Inkognito - Where your identity is never known but messages are !!
         </p>
       </section>
       <Carousel

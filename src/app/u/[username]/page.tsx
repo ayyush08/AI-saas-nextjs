@@ -16,6 +16,7 @@ import { useToast } from '@/hooks/use-toast'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
+import Navbar from '@/components/Navbar'
 
 const initialSuggestions = 'What is your favorite color? || What is your favorite food? || What is your favorite movie?'
 
@@ -96,12 +97,13 @@ const page = () => {
 
   return (
     <>
+    <Navbar/>
     <div className='mx-auto p-5 text-center'>
-      <a href="/" className='text-4xl  font-bold mb-4 md:mb-0'>Anonymous Message</a>
+      {/* <a href="/" className='text-4xl  font-bold mb-4 md:mb-0'>Anonymous Message</a> */}
 
     </div>
-    <div className="container mx-auto my-8 p-6 bg-white rounded max-w-4xl">
-      <h1 className="text-2xl font-bold mb-6 text-center">
+    <div className="container mx-auto my-2 p-3 bg-white rounded max-w-4xl">
+      <h1 className="text-3xl font-bold mb-6 text-center">
         Public Profile of @{username}
       </h1>
       <Form {...form}>
@@ -172,12 +174,6 @@ const page = () => {
         </Card>
       </div>
       <Separator className="my-6" />
-      <div className="text-center">
-        <div className="mb-4">Get Your Message Board</div>
-        <Link href={'/sign-up'}>
-          <Button>Create Your Account</Button>
-        </Link>
-      </div>
     </div>
             </>
   )
