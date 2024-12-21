@@ -92,10 +92,10 @@ const Navbar = () => {
     return (
         <nav className='p-4 md:p-6 shadow-md'>
             <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
-                <a href="/" className='text-xl font-bold mb-4 md:mb-0'>Mystery Message</a>
+                <a href="/" className='text-3xl font-bold mb-4 md:mb-0'>Mystery Message</a>
                 {
                     session ? (<>
-                        <span className=' mx-auto font-bold text-2xl'>Welcome, {user.username || user.email}</span>
+                        <span className=' mx-auto font-bold px-4 text-xl'>Welcome, {user.username || user.email}</span>
                         <div className='flex flex-col md:flex-row gap-4'>
                             {window.location.pathname !== '/dashboard' &&
                                 <Link href='/dashboard'>

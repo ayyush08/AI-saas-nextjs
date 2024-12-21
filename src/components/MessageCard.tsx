@@ -25,12 +25,13 @@ import { Message } from '@/models/User.model'
 import { useToast } from '@/hooks/use-toast'
 import axios from 'axios'
 import { ApiResponse } from '@/types/ApiResponse'
-
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime' 
 type MessageCardProps = {
     message: Message
     onMessageDelete: (messageId:string) => void
 }
-
+dayjs.extend(relativeTime)
 
 
 const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
@@ -58,7 +59,7 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
                 <CardTitle>{message.content}</CardTitle>
                 <AlertDialog>
                     <AlertDialogTrigger asChild>
-                        <Button variant="destructive"><X className="w-3 h-3"/></Button>
+                        <Button variant="destructive">Delete</Button>
                     </AlertDialogTrigger>
                     <AlertDialogContent>
                         <AlertDialogHeader>
@@ -75,7 +76,7 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
                     </AlertDialogContent>
                 </AlertDialog>
                 </div>
-                <CardDescription>Card Description</CardDescription>
+                <CardDescription>{dayjs(message.createdAt).fromNow()}</CardDescription>
             </CardHeader>
             <CardContent>
             </CardContent>
