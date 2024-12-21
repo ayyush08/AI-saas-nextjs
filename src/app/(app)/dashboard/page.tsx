@@ -101,8 +101,10 @@ const page = () => {
       })
     }
   }
+  
+  const username  = session?.user?.username //assertion
+  console.log(username);
 
-  const { username } = session?.user as User
   //research it for more good or bad techniques
   const baseUrl = `${window.location.protocol
     }//${window.location.host}`
