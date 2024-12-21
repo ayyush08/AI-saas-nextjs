@@ -63,10 +63,9 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
                     </AlertDialogTrigger>
                     <AlertDialogContent>
                         <AlertDialogHeader>
-                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                            <AlertDialogTitle>WARNING !</AlertDialogTitle>
                             <AlertDialogDescription>
-                                This action cannot be undone. This will permanently delete your
-                                account and remove your data from our servers.
+                                This will permanently delete the message from your account.
                             </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
