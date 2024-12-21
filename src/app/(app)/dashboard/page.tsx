@@ -51,7 +51,7 @@ const page = () => {
     setIsLoading(true)
     setIsSwitchLoading(false)
     try {
-      const response = await axios.get('/get-messages')
+      const response = await axios.get('/api/get-messages')
       setMessages(response.data.messages || [])
       if (refresh) {
         toast({

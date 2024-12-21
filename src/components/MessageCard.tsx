@@ -35,7 +35,8 @@ type MessageCardProps = {
 
 const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
     const {toast} = useToast()
-
+    console.log(message,onMessageDelete);
+    
 
     const handleDeleteMessage = async ()=>{
         try {
@@ -52,10 +53,12 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Card Title</CardTitle>
+                <div className='flex justify-between items-center'>
+
+                <CardTitle>{message.content}</CardTitle>
                 <AlertDialog>
                     <AlertDialogTrigger asChild>
-                        <Button variant="destructive"><X className="w-5 h-5"/></Button>
+                        <Button variant="destructive"><X className="w-3 h-3"/></Button>
                     </AlertDialogTrigger>
                     <AlertDialogContent>
                         <AlertDialogHeader>
@@ -67,10 +70,11 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                             <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={handleDeleteMessage} >Continue</AlertDialogAction>
+                            <AlertDialogAction onClick={handleDeleteMessage} className='bg-red-500 ' >Delete</AlertDialogAction>
                         </AlertDialogFooter>
                     </AlertDialogContent>
                 </AlertDialog>
+                </div>
                 <CardDescription>Card Description</CardDescription>
             </CardHeader>
             <CardContent>

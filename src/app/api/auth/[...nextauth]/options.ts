@@ -37,7 +37,7 @@ export const authOptions: NextAuthOptions = {
                     }
                     return user // ye return ja rha h options me
                 } catch (error: any) {
-                    throw new Error("Error in authorizing user") //needed here as per docs return null callback
+                    throw new Error(error || "Error in authorizing user") //needed here as per docs return null callback
 
                 }
             }
