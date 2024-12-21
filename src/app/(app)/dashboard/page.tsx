@@ -56,14 +56,15 @@ const page = () => {
       if (refresh) {
         toast({
           title: "Messages refreshed",
-          description: "Showing most recent messages"
+          description: "Showing most recent messages",
         })
       }
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>
       toast({
         title: "Error",
-        description: axiosError.response?.data.message || "Failed to fetch messages"
+        description: axiosError.response?.data.message || "Failed to fetch messages",
+        variant: 'destructive'
       })
     }
     finally {
