@@ -1,11 +1,22 @@
 import dbConnect from "@/lib/dbConnect";
-import UserModel from "@/models/User.model";
+import UserModel, { User } from "@/models/User.model";
 import { Message } from "@/models/User.model";
-
-
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]/options";
 export async function POST(request:Request){
     await dbConnect();
     const {username,content} = await request.json()
+    const session = await getServerSession(authOptions)
+    const user:User = session?.user as User //assertion
+    if(session?.user.username === username){
+        
+        return Response.json({
+            success:false,
+            message:"You can't send message to yourself"
+        },{
+            status:401
+        })
+    }
     try {
         const user = await UserModel.findOne({username})
         if(!user){
@@ -41,7 +52,7 @@ export async function POST(request:Request){
         
         return Response.json({
             success:false,
-            message:"Error sending message"
+            message:error || "Error sending message"
         },{
             status:500
         })
