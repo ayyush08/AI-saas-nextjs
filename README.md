@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🕵️ Inkognito
 
-## Getting Started
+Inkognito is a web application that allows users to send messages anonymously. Users can create a public profile url share it with others so that they can send them messages anonymously. Users can also take suggestions for messages from the app.
 
-First, run the development server:
+
+## ✨ Features
+
+1. User can create an account 
+2. Users can verify their email using OTP
+3. Users can create a public profile url to receive messages
+4. Users can send messages anonymously to other users
+5. Users can take AI suggestions for messages from the app
+6. Users can view their received messages
+7. Users can turn their profile on/off to receive messages
+8. Users can delete their received messages
+
+
+## 🛠️ Technologies Used
+
+1. Next.js - Whole application is built using Next.js using it's app router
+2. NextAuth.js - For authentication of the users
+3. Zod Schema Validator - For validation of the data
+4. Resend - To add email sending functionality for OTP verification
+5. usehooks-ts - For using debouncing technique where needed
+6. GenAI Api - To generate suggestions for messages
+7. MongoDB - For storing the data
+8. Tailwind CSS - For styling the application
+
+
+## 🚀 Getting Started
+
+First, clone the repository:
+
+```bash
+git clone https://github.com/ayyush08/Inkognito.git
+cd Inkognito
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💬 Feedback
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you have any feedback, please open an issue in this repository or reach out to me using my socials in my profile.
