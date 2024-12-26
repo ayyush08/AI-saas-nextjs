@@ -19,7 +19,7 @@ export default function VerificationEmail({ username, otp }: VerificationEmailPr
     return (
         <Html lang="en" dir="ltr">
             <Head>
-                <title>Verification Code</title>
+                <title>Verification Code for Inkognito account</title>
                 <Font
                     fontFamily="Roboto"
                     fallbackFontFamily="Verdana"
@@ -38,7 +38,7 @@ export default function VerificationEmail({ username, otp }: VerificationEmailPr
                 </Row>
                 <Row>
                     <Text>
-                        Thank you for registering. Please use the following verification
+                        Thank you for registering on Inkognito. Please use the following verification
                         code to complete your registration:
                     </Text>
                 </Row>
