@@ -15,7 +15,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
+import { Form, FormControl, FormField, FormItem } from './ui/form'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { Textarea } from './ui/textarea'
@@ -37,6 +37,8 @@ const AskLink = () => {
             router.replace(data.url)
 
         } catch (error) {
+            console.log(error);
+            
             toast({
                 title: "Invalid Url",
                 variant: 'destructive'
@@ -92,7 +94,7 @@ const Navbar = () => {
     return (
         <nav className='p-4 md:p-6 shadow-md'>
             <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
-                <a href="/" className='text-3xl font-bold mb-4 md:mb-0'>Inkognito</a>
+                <Link href="/" className='text-3xl font-bold mb-4 md:mb-0'>Inkognito</Link>
                 {
                     session ? (<>
                         <span className=' mx-auto font-bold px-4 text-xl'>Welcome , {user.username || user.email}</span>

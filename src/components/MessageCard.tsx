@@ -4,7 +4,6 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -20,7 +19,6 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from './ui/button'
-import { X } from 'lucide-react'
 import { Message } from '@/models/User.model'
 import { useToast } from '@/hooks/use-toast'
 import axios from 'axios'
@@ -47,6 +45,10 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
             })
             onMessageDelete(message._id as string) //check back
         } catch (error) {
+            toast({
+                title:"Error deleting message",
+                variant:'destructive'
+            })
             
         }
     }

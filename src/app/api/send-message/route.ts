@@ -1,5 +1,5 @@
 import dbConnect from "@/lib/dbConnect";
-import UserModel, { User } from "@/models/User.model";
+import UserModel from "@/models/User.model";
 import { Message } from "@/models/User.model";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/options";
@@ -7,7 +7,7 @@ export async function POST(request:Request){
     await dbConnect();
     const {username,content} = await request.json()
     const session = await getServerSession(authOptions)
-    const user:User = session?.user as User //assertion
+    // const user:User = session?.user as User //assertion
     if(session?.user.username === username){
         
         return Response.json({
