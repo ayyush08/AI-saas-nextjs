@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel"
 import messages from '@/messages.json'
 import AutoPlay from 'embla-carousel-autoplay'
-const page = () => {
+const Home = () => {
   return (
     <main className='flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12'>
       <section className='text-center mb-8 md:mb-12'>
@@ -48,4 +48,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Home

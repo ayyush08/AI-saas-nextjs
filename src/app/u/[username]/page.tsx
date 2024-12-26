@@ -24,7 +24,7 @@ const parseStringMessages = (messages:string):string[]=>{
   return messages.split('||')
 }
 
-const page = () => {
+const Page = () => {
   const [isLoading,setIsLoading] = useState(false)
   const {toast} = useToast()
   const [messages,setMessages] = useState(initialSuggestions);
@@ -177,4 +177,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
