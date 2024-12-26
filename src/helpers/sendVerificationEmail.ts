@@ -13,7 +13,7 @@ export async function sendVerificationEmail(
         const res = await resend.emails.send({
             from: 'Inkognito@ayyush.me',
             to: email,
-            subject: 'Verification Code for True Feedback Account',
+            subject: 'Verification Code for Inkognito Account',
             react: VerificationEmail({username,otp:verifyCode}),
         });
         console.log(res);

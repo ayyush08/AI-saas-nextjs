@@ -7,8 +7,8 @@ import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'True Feedback',
-    description: 'Real feedback from real people.',
+    title: 'Inkognito - Unleash Your Thoughts',
+    description: 'Send anonymous messages and express yourself freely',
 };
 
 interface RootLayoutProps {
