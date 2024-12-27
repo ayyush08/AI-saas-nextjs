@@ -5,8 +5,10 @@ import UserModel from "@/models/User.model";
 import { User } from "next-auth";
 
 
-export async function DELETE( { params }: { params: { messageId: string } }) {
-    const messageId = params.messageId
+export async function DELETE(request: Request, { params }: { params: Promise<{ messageId: string }> }) {
+    
+    const messageId =(await params).messageId
+    console.log(messageId);
     await dbConnect()
     const session = await getServerSession(authOptions)
     const user: User = session?.user as User //assertion
