@@ -21,7 +21,6 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = useState(false)
   const [profileUrl, setProfileUrl] = useState('')
-  console.log(profileUrl);
   const { toast } = useToast()
   const handleDeleteMessage = (messageId: string) => {
     setMessages(messages.filter((message) => message._id !== messageId)) //optimistic update

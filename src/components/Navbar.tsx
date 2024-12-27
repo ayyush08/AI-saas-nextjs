@@ -89,7 +89,6 @@ const AskLink = () => {
 const Navbar = () => {
     const { data: session } = useSession()
     const user: User = session?.user as User //assertion
-    console.log(window.location.pathname.split('/'));
 
     return (
         <nav className='p-4 md:p-6 shadow-md'>
