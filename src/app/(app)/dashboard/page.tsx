@@ -17,6 +17,7 @@ const Page = () => {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = useState(false)
+  const [profileUrl, setProfileUrl] = useState('')
   const { toast } = useToast()
   const handleDeleteMessage = (messageId: string) => {
     setMessages(messages.filter((message) => message._id !== messageId)) //optimistic update
@@ -73,8 +74,11 @@ const Page = () => {
   }, [setIsLoading, setMessages])
 
   useEffect(() => {
-
     if (!session || !session.user) return;
+    const baseUrl = `${window.location.protocol
+    }//${window.location.host}`
+  const profileUrl = `${baseUrl}/u/${username}`
+    setProfileUrl(profileUrl)
     fetchMessages()
     fetchAcceptMessage()
   }, [session, setValue, fetchAcceptMessage, fetchMessages])
@@ -106,18 +110,17 @@ const Page = () => {
   console.log(username);
 
   //research it for more good or bad techniques
-  const baseUrl = `${window.location.protocol
-    }//${window.location.host}`
-
-  const profileUrl = `${baseUrl}/u/${username}`
+ 
 
 
     const copyToClipboard = ()=>{
+      if(profileUrl){
       navigator.clipboard.writeText(profileUrl)
       toast({
         title:"Profile URL copied to clipboard"
       })
     }
+  }
 
   if (!session || !session.user) {
     return <div>Please Login</div>
