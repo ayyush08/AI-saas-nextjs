@@ -75,6 +75,7 @@ const Page = () => {
 
   useEffect(() => {
     if (!session || !session.user) return;
+    if(typeof window === 'undefined') return;
     const baseUrl = `${window.location.protocol
     }//${window.location.host}`
   const profileUrl = `${baseUrl}/u/${username}`
