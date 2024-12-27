@@ -34,7 +34,6 @@ dayjs.extend(relativeTime)
 
 const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
     const {toast} = useToast()
-    console.log(message,onMessageDelete);
     
 
     const handleDeleteMessage = async ()=>{

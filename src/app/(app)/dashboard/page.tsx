@@ -9,15 +9,19 @@ import { acceptMessageSchema } from '@/schemas/acceptMessageSchema'
 import { ApiResponse } from '@/types/ApiResponse'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios, { AxiosError } from 'axios'
-import { Loader2, RefreshCcw } from 'lucide-react'
+import { Loader2, RefreshCcw, UserRoundPlus } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import {useUrl} from 'nextjs-current-url'
 const Page = () => {
+  const url = useUrl()
   const [messages, setMessages] = useState<Message[]>([])
+  
   const [isLoading, setIsLoading] = useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = useState(false)
   const [profileUrl, setProfileUrl] = useState('')
+  console.log(profileUrl);
   const { toast } = useToast()
   const handleDeleteMessage = (messageId: string) => {
     setMessages(messages.filter((message) => message._id !== messageId)) //optimistic update
@@ -75,9 +79,9 @@ const Page = () => {
 
   useEffect(() => {
     if (!session || !session.user) return;
-    if(typeof window === 'undefined') return;
-    const baseUrl = `${window.location.protocol
-    }//${window.location.host}`
+    
+    const baseUrl = `${url?.protocol
+    }//${url?.host}`
   const profileUrl = `${baseUrl}/u/${username}`
     setProfileUrl(profileUrl)
     fetchMessages()
@@ -108,7 +112,6 @@ const Page = () => {
   }
   
   const username  = session?.user?.username //assertion
-  console.log(username);
 
   //research it for more good or bad techniques
  
