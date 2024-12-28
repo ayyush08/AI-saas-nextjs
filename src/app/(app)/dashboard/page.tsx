@@ -85,7 +85,7 @@ const Page = () => {
     setProfileUrl(profileUrl)
     fetchMessages()
     fetchAcceptMessage()
-  }, [session, setValue, fetchAcceptMessage, fetchMessages])
+  }, [session, setValue, fetchAcceptMessage, fetchMessages,profileUrl])
 
 
   //switch change
