@@ -11,7 +11,7 @@ export async function sendVerificationEmail(
 ): Promise<ApiResponse> {  // response of type ApiResponse chahiye hi chahiye
     try {
         const res = await resend.emails.send({
-            from: 'management@inkognito.tech',
+            from: `management@${process.env.RESEND_DOMAIN}`,
             to: email,
             subject: 'Verification Code for Inkognito Account',
             react: VerificationEmail({username,otp:verifyCode}),
